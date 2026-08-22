@@ -1,0 +1,364 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Design tokens — centralized, theme aware
+   ============================================================ */
+:root {
+  --sv-brand: #2563EB;
+  --sv-brand-soft: #EFF6FF;
+  --sv-brand-strong: #1D4ED8;
+  --sv-brand-accent: #3B82F6;
+
+  --sv-severity-critical: #EF4444;
+  --sv-severity-critical-fg: #FFFFFF;
+  --sv-severity-critical-soft: #FEE2E2;
+
+  --sv-severity-high: #F97316;
+  --sv-severity-high-fg: #FFFFFF;
+  --sv-severity-high-soft: #FFEDD5;
+
+  --sv-severity-medium: #EAB308;
+  --sv-severity-medium-fg: #1C1917;
+  --sv-severity-medium-soft: #FEF9C3;
+
+  --sv-severity-low: #22C55E;
+  --sv-severity-low-fg: #FFFFFF;
+  --sv-severity-low-soft: #DCFCE7;
+
+  --sv-status-reported: #3B82F6;
+  --sv-status-reported-soft: #DBEAFE;
+  --sv-status-reported-fg: #1E40AF;
+
+  --sv-status-ai-verified: #8B5CF6;
+  --sv-status-ai-verified-soft: #EDE9FE;
+  --sv-status-ai-verified-fg: #5B21B6;
+
+  --sv-status-under-review: #06B6D4;
+  --sv-status-under-review-soft: #CFFAFE;
+  --sv-status-under-review-fg: #155E75;
+
+  --sv-status-assigned: #F97316;
+  --sv-status-assigned-soft: #FFEDD5;
+  --sv-status-assigned-fg: #9A3412;
+
+  --sv-status-in-progress: #EAB308;
+  --sv-status-in-progress-soft: #FEF9C3;
+  --sv-status-in-progress-fg: #854D0E;
+
+  --sv-status-resolved: #22C55E;
+  --sv-status-resolved-soft: #DCFCE7;
+  --sv-status-resolved-fg: #166534;
+
+  --sv-status-rejected: #64748B;
+  --sv-status-rejected-soft: #F1F5F9;
+  --sv-status-rejected-fg: #334155;
+
+  --sv-priority-critical: #EF4444;
+  --sv-priority-critical-soft: #FEE2E2;
+  --sv-priority-critical-fg: #991B1B;
+
+  --sv-priority-high: #F97316;
+  --sv-priority-high-soft: #FFEDD5;
+  --sv-priority-high-fg: #9A3412;
+
+  --sv-priority-medium: #EAB308;
+  --sv-priority-medium-soft: #FEF9C3;
+  --sv-priority-medium-fg: #854D0E;
+
+  --sv-priority-low: #22C55E;
+  --sv-priority-low-soft: #DCFCE7;
+  --sv-priority-low-fg: #166534;
+
+  --sv-map-tile-filter: none;
+  --sv-map-raster: rgba(0, 0, 0, 0.06);
+  --sv-bg: #FFFFFF;
+  --sv-text-primary: #0F172A;
+  --sv-text-secondary: #475569;
+  --sv-border: #E2E8F0;
+  color-scheme: light;
+}
+
+.dark {
+  --sv-brand: #60A5FA;
+  --sv-brand-soft: rgba(96, 165, 250, 0.12);
+  --sv-brand-strong: #3B82F6;
+  --sv-brand-accent: #93C5FD;
+
+  --sv-severity-critical: #F87171;
+  --sv-severity-critical-fg: #1C1917;
+  --sv-severity-critical-soft: rgba(248, 113, 113, 0.16);
+
+  --sv-severity-high: #FB923C;
+  --sv-severity-high-fg: #1C1917;
+  --sv-severity-high-soft: rgba(251, 146, 60, 0.16);
+
+  --sv-severity-medium: #FACC15;
+  --sv-severity-medium-fg: #1C1917;
+  --sv-severity-medium-soft: rgba(250, 204, 21, 0.16);
+
+  --sv-severity-low: #4ADE80;
+  --sv-severity-low-fg: #052E16;
+  --sv-severity-low-soft: rgba(74, 222, 128, 0.16);
+
+  --sv-status-reported: #60A5FA;
+  --sv-status-reported-soft: rgba(96, 165, 250, 0.18);
+  --sv-status-reported-fg: #60A5FA;
+
+  --sv-status-ai-verified: #A78BFA;
+  --sv-status-ai-verified-soft: rgba(167, 139, 250, 0.18);
+  --sv-status-ai-verified-fg: #A78BFA;
+
+  --sv-status-under-review: #22D3EE;
+  --sv-status-under-review-soft: rgba(34, 211, 238, 0.18);
+  --sv-status-under-review-fg: #22D3EE;
+
+  --sv-status-assigned: #FB923C;
+  --sv-status-assigned-soft: rgba(251, 146, 60, 0.18);
+  --sv-status-assigned-fg: #FB923C;
+
+  --sv-status-in-progress: #FBBF24;
+  --sv-status-in-progress-soft: rgba(251, 191, 36, 0.18);
+  --sv-status-in-progress-fg: #FBBF24;
+
+  --sv-status-resolved: #4ADE80;
+  --sv-status-resolved-soft: rgba(74, 222, 128, 0.18);
+  --sv-status-resolved-fg: #4ADE80;
+
+  --sv-status-rejected: #94A3B8;
+  --sv-status-rejected-soft: rgba(148, 163, 184, 0.18);
+  --sv-status-rejected-fg: #94A3B8;
+
+  --sv-priority-critical: #F87171;
+  --sv-priority-critical-soft: rgba(248, 113, 113, 0.18);
+  --sv-priority-critical-fg: #FEE2E2;
+
+  --sv-priority-high: #FB923C;
+  --sv-priority-high-soft: rgba(251, 146, 60, 0.18);
+  --sv-priority-high-fg: #FFEDD5;
+
+  --sv-priority-medium: #FACC15;
+  --sv-priority-medium-soft: rgba(250, 204, 21, 0.18);
+  --sv-priority-medium-fg: #FEF9C3;
+
+  --sv-priority-low: #4ADE80;
+  --sv-priority-low-soft: rgba(74, 222, 128, 0.18);
+  --sv-priority-low-fg: #DCFCE7;
+
+  --sv-map-tile-filter: brightness(0.7) invert(1) contrast(3) hue-rotate(200deg)
+    saturate(0.3) brightness(0.9);
+  --sv-map-raster: rgba(0, 0, 0, 0.35);
+  --sv-bg: #0F172A;
+  --sv-text-primary: #F8FAFC;
+  --sv-text-secondary: #94A3B8;
+  --sv-border: #334155;
+  color-scheme: dark;
+}
+
+/* Severity colors exposed as theme-aware CSS variables */
+@layer base {
+  * {
+    border-color: rgb(226 232 240 / var(--tw-border-opacity, 1));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: theme('fontFamily.sans');
+    background-color: var(--sv-bg, #ffffff);
+    color: var(--sv-text-primary, #0f172a);
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  .dark body {
+    color: var(--sv-text-primary, #f8fafc);
+  }
+
+  ::selection {
+    background: rgb(37 99 235 / 0.25);
+  }
+  .dark ::selection {
+    background: rgb(96 165 250 / 0.25);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(100 116 139 / 0.35);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(100 116 139 / 0.55);
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: rgb(255 255 255 / 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .dark .glass {
+    background-color: rgb(30 41 59 / 0.72);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgb(226 232 240 / 0.6) 0px,
+      rgb(241 245 249 / 1) 200px,
+      rgb(226 232 240 / 0.6) 400px
+    );
+    background-size: 600px 100%;
+    animation: shimmer 1.4s linear infinite;
+  }
+  .dark .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgb(30 41 59 / 0.6) 0px,
+      rgb(51 65 85 / 1) 200px,
+      rgb(30 41 59 / 0.6) 400px
+    );
+    background-size: 600px 100%;
+  }
+}
+
+/* ============================================================
+   Leaflet theme overrides
+   ============================================================ */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: var(--sv-map-raster);
+  font-family: inherit;
+}
+
+.leaflet-tile-pane {
+  filter: var(--sv-map-tile-filter);
+}
+
+.leaflet-control-attribution {
+  font-size: 9px;
+  background: rgb(255 255 255 / 0.7) !important;
+  color: #475569 !important;
+}
+.dark .leaflet-control-attribution {
+  background: rgb(15 23 42 / 0.7) !important;
+  color: #94a3b8 !important;
+}
+.dark .leaflet-control-attribution a {
+  color: #60a5fa !important;
+}
+
+.leaflet-control-zoom a {
+  background: rgb(255 255 255 / 0.9) !important;
+  color: #334155 !important;
+  border-color: rgb(226 232 240) !important;
+}
+.dark .leaflet-control-zoom a {
+  background: rgb(30 41 59 / 0.9) !important;
+  color: #e2e8f0 !important;
+  border-color: rgb(51 65 85) !important;
+}
+.leaflet-control-zoom a:hover {
+  background: rgb(248 250 252) !important;
+}
+.dark .leaflet-control-zoom a:hover {
+  background: rgb(51 65 85) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px -6px rgb(0 0 0 / 0.25) !important;
+}
+
+/* Marker cluster theme */
+.marker-cluster-small {
+  background-color: rgb(48 116 245 / 0.25);
+}
+.marker-cluster-small div {
+  background-color: rgb(48 116 245 / 0.85);
+  color: #fff;
+}
+.marker-cluster-medium {
+  background-color: rgb(234 88 12 / 0.25);
+}
+.marker-cluster-medium div {
+  background-color: rgb(234 88 12 / 0.85);
+  color: #fff;
+}
+.marker-cluster-large {
+  background-color: rgb(220 38 38 / 0.25);
+}
+.marker-cluster-large div {
+  background-color: rgb(220 38 38 / 0.85);
+  color: #fff;
+}
+.marker-cluster div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 9999px;
+  width: 34px !important;
+  height: 34px !important;
+  margin: 4px;
+}
+
+/* Custom severity marker divIcon */
+.sv-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px 9999px 9999px 3px;
+  transform: rotate(45deg);
+  border: 2.5px solid #fff;
+  box-shadow: 0 4px 10px -2px rgb(0 0 0 / 0.35);
+}
+.sv-marker > svg {
+  transform: rotate(-45deg);
+  color: #fff;
+}
+.sv-marker--selected {
+  width: 40px;
+  height: 40px;
+  border-width: 3px;
+}
+
+/* Heatmap attribution fix (leaflet.heat renders its own pane) */
+.leaflet-heatmap-pane {
+  pointer-events: none;
+}
